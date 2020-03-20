@@ -1,0 +1,90 @@
+#define ldrValue  A0
+#define rled D1
+#define gled D3
+#define bled D5
+#define rout D0
+#define gout D4
+#define bout D6
+
+int blue,red,green;
+int bvalue,rvalue,gvalue;
+
+//int newvalue;
+
+
+
+void setup(){pinMode(rled, OUTPUT); 
+pinMode(gled, OUTPUT);
+pinMode(bled, OUTPUT);
+pinMode(ldrValue,INPUT);
+pinMode(rout, OUTPUT); 
+pinMode(gout, OUTPUT);
+
+pinMode(bout, OUTPUT); 
+
+Serial.begin(9600);
+
+
+
+}
+
+void loop() {
+  digitalWrite(rled,HIGH);
+  delay(40);
+red=analogRead(ldrValue);
+Serial.print('r');
+Serial.println(red);
+delay(10);
+digitalWrite(rled,LOW);
+
+digitalWrite(bled,HIGH);delay(40);
+blue=analogRead(ldrValue);delay(10);
+Serial.print('b');
+Serial.println(blue);
+digitalWrite(bled,LOW);
+
+digitalWrite(gled,HIGH);delay(40);
+green=analogRead(ldrValue);delay(10);
+Serial.print('g');
+Serial.println(green);
+digitalWrite(gled,LOW);
+
+
+
+ if (red>green&&red>blue)
+   { 
+  rvalue=HIGH;
+  
+Serial.println('r');
+        
+   }
+   else 
+    rvalue=LOW;
+ 
+   
+   if (green>red&&green>blue)
+   { 
+  gvalue=HIGH;
+  
+Serial.println('g');
+        
+   }
+    else 
+    gvalue=LOW;
+   
+   
+   if (blue>red&&blue>green)
+   {
+bvalue=HIGH;
+Serial.println('b');
+        
+   }
+   else 
+  bvalue=LOW;
+ 
+   
+  digitalWrite(rout,rvalue);
+  digitalWrite(gout,gvalue);
+  digitalWrite(bout,bvalue);
+        
+   }
