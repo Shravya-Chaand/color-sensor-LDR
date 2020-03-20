@@ -14,10 +14,10 @@ Colour Sensor that is LDR (light dependent resistor) based and identify three pr
   RGB LED connections to NodeMCU ---> connect the negative of LED to ground and the other lines of LED to three digital pins ,say D1,D3,D5,of the NodeMCU.Similarly connect the other RGB LED to the digital pins D0,D4,D6.
   LDR connections to NodeMCU---> connect one line of terminal of LDR to GND and the other to analog pin A0 of the NodeMCU.Also make sure to surround the LDR with insulating tape so that no other light interferes(refer figure attached).
   
-   design flow and Arduino IDE:
+    Design flow and Arduino IDE:
    here first we use one of the RGB with the LDR we read and store the value of red,green and blue light emiited into variables defined.
   
-     digitalWrite(rled,HIGH);//red color value detection
+  digitalWrite(rled,HIGH);//red color value detection
   delay(40);
 red=analogRead(ldrValue);
 Serial.print('r');
